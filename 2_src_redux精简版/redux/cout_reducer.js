@@ -1,0 +1,20 @@
+/**
+ * 1.该文件创建一个为Count组件服务的reducer，reducer的本质就是一个函数
+ * 2、reducer函数会接到两个参数，分别为：之前的状态（preState），动作对象（action）
+ */
+const initState = 0;  // 初始化状态
+export default function coutReducer(preState = initState,action) {
+    console.log('preState： ' + preState);
+    console.log(action);
+    // if(preState === undefined) preState = 0;
+    // 从action中获取：type,data
+    const {type, data} = action;
+    switch (type) {
+        case 'increment':   // 加
+            return preState + data;
+        case 'decrement': // 减法
+            return preState - data;
+        default:
+            return preState;
+    }
+}
